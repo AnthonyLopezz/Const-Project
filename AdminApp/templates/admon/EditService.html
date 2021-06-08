@@ -1,0 +1,56 @@
+{% extends "admon/admin.html" %}
+
+{% load static %}
+
+
+{% block content %}
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+            <strong>Edit Service</strong> {{message}}
+        </div>
+        <div class="card-body card-block">
+            <form action="" method="post"> {% csrf_token %}
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Title: </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        {{ form.title }}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Image: </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        {{form.image}}
+                        <small class="help-block form-text">Please select the file</small>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Content: </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        {{form.content}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Link: </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        {{ form.link }}
+                    </div>
+                </div>
+                <div class="card-footer">
+            <input type="submit" class="btn btn-primary btn-sm" value="Save">
+        </div>
+            </form>
+        </div>
+    </div>
+
+{{request.POST}}
+
+{% endblock %}
